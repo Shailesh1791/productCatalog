@@ -1,0 +1,57 @@
+resilience4j:
+  ratelimiter:
+    instances:
+      productRateLimiter:
+        limit-refresh-period: 10s
+        limit-for-period: 5
+        timeout-duration: 1s
+        writable-stack-trace-enabled: true
+
+  bulkhead:
+    instances:
+      productBulkHead:
+        max-concurrent-calls: 5
+        max-wait-duration:
+          nanos: 100
+
+  circuitbreaker:
+    instances:
+      productCircuitBrek:
+        failure-rate-threshold: 1.5
+        minimum-number-of-calls: 2
+        wait-duration-in-open-state:
+          nanos: 1000
+  timelimiter:
+    instances:
+      productTimeLimiter:
+        timeout-duration:
+          seconds: 5
+
+  retry:
+    instances:
+      productRetry:
+        max-attempts: 3
+        wait-duration:
+          seconds: 6
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#  tracing:
+#    sampling:
+#      probability: 1.0
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8080
+  shutdown: graceful
