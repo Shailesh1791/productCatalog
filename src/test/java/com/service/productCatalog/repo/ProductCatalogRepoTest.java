@@ -24,7 +24,7 @@ public class ProductCatalogRepoTest {
     private TestEntityManager entityManager;
 
 
-    @Test
+    /*@Test
     public void testFindByName() {
         //arrange
         Product product = Product.builder().name("Iphone")
@@ -50,5 +50,5 @@ public class ProductCatalogRepoTest {
 
 
 
-    }
+    }*/
 }

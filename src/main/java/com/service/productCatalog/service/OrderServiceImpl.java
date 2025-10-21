@@ -1,7 +1,7 @@
 package com.service.productCatalog.service;
 
-import com.service.productCatalog.config.OrderMapper;
-import com.service.productCatalog.constants.CacheNames;
+import com.service.productCatalog.mapper.OrderMapper;
+import com.service.productCatalog.constant.CacheNames;
 import com.service.productCatalog.dto.OrderDTO;
 import com.service.productCatalog.entity.Order;
 import com.service.productCatalog.repo.OrderServiceRepo;

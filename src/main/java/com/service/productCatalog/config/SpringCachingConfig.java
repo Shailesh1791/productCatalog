@@ -1,6 +1,6 @@
 package com.service.productCatalog.config;
 
-import com.service.productCatalog.constants.CacheNames;
+import com.service.productCatalog.constant.CacheNames;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;

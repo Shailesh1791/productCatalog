@@ -1,4 +1,4 @@
-package com.service.productCatalog.constants;
+package com.service.productCatalog.constant;
 
 public enum ApiStatus {
 

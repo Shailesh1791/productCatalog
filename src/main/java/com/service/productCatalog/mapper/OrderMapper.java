@@ -1,4 +1,4 @@
-package com.service.productCatalog.config;
+package com.service.productCatalog.mapper;
 
 import com.service.productCatalog.dto.OrderDTO;
 import com.service.productCatalog.entity.Order;

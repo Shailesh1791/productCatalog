@@ -1,7 +1,7 @@
 package com.service.productCatalog.utils;
 
 import com.service.productCatalog.commons.RestApiStatus;
-import com.service.productCatalog.constants.ApiStatus;
+import com.service.productCatalog.constant.ApiStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.WebRequest;
 
