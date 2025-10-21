@@ -3,7 +3,7 @@ package com.service.productCatalog.exception;
 
 import com.service.productCatalog.commons.RestApiResponse;
 import com.service.productCatalog.commons.RestApiStatus;
-import com.service.productCatalog.constants.ApiStatus;
+import com.service.productCatalog.constant.ApiStatus;
 import com.service.productCatalog.utils.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

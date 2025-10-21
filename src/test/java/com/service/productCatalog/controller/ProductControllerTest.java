@@ -95,7 +95,7 @@ public class ProductControllerTest {
         Mockito.when(productService.getProductByProductId(productId)).thenReturn(productDTO);
 
         //act
-        MvcResult mvcResult=mockMvc.perform(get("http://localhost:8080/productApi/products")
+        MvcResult mvcResult=mockMvc.perform(get("http://localhost:8080/api/v1/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("productId",String.valueOf(productId))).andReturn();
 
@@ -128,7 +128,7 @@ public class ProductControllerTest {
         Mockito.when(productService.getAllProducts()).thenReturn(productDTOS);
 
         //act
-        MvcResult mvcResult=this.mockMvc.perform(get("http://localhost:8080/productApi/products")
+        MvcResult mvcResult=this.mockMvc.perform(get("http://localhost:8080/api/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)).andReturn();
 
         //assertion

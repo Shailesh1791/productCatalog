@@ -1,4 +1,4 @@
-package com.service.productCatalog.constants;
+package com.service.productCatalog.constant;
 
 public final class CacheNames {
     public static final String PRODUCTS="products";

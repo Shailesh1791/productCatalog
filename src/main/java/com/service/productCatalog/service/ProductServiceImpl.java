@@ -1,7 +1,7 @@
 package com.service.productCatalog.service;
 
-import com.service.productCatalog.config.ProductMapper;
-import com.service.productCatalog.constants.CacheNames;
+import com.service.productCatalog.mapper.ProductMapper;
+import com.service.productCatalog.constant.CacheNames;
 import com.service.productCatalog.dto.ProductDTO;
 import com.service.productCatalog.dto.SearchProductDTO;
 import com.service.productCatalog.entity.Product;
@@ -15,7 +15,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
