@@ -55,3 +55,16 @@ eureka:
 server:
   port: 8080
   shutdown: graceful
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 563525833359-k8l4fr8rgqr69ab9k4b6l205m655lcj5.apps.googleusercontent.com
+            client-secret: xxxxxxx
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
