@@ -35,7 +35,7 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<List<OrderDTO>> getAllOrders() {
-        log.info("getAllOrders started");
+        log.info("getAllOrders started ...");
         List<OrderDTO> orderDTOS = orderService.getAllOrders();
         if (orderDTOS == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
