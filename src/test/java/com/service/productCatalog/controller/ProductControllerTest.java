@@ -60,7 +60,7 @@ public class ProductControllerTest {
     @Test
     public void testProductByProductId_WithFailure() throws Exception {
         //arrange
-        long productId = -100;
+        long productId = -101;
         Mockito.when(productService.getProductByProductId(productId)).thenReturn(null);
 
         //act
