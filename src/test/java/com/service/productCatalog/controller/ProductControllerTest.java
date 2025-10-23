@@ -2,12 +2,14 @@ package com.service.productCatalog.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.service.productCatalog.config.DatabaseConfig1;
 import com.service.productCatalog.dto.ProductDTO;
 import com.service.productCatalog.service.IProductService;
 import com.service.productCatalog.utils.JwtUtil;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
@@ -24,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @WebMvcTest(controllers = ProductController.class)
 @AutoConfigureMockMvc(addFilters = false)
+@ImportAutoConfiguration(exclude = {DatabaseConfig1.class})
 public class ProductControllerTest {
 
     @MockitoBean
