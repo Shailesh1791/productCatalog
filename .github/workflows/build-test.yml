@@ -38,4 +38,4 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Deploy Maven package
-      run: mvn clean deploy
+      run: mvn clean deploy --settings .github/mvn-settings.xml
