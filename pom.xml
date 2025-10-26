@@ -167,7 +167,7 @@
     <repository>
         <id>github</id>
         <name>GitHub Packages</name>
-        <url>https://maven.pkg.github.com/your-org/your-repo</url>
+        <url>https://maven.pkg.github.com/arghya/productCatalog</url>
     </repository>
 </distributionManagement>
     <build>
