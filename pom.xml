@@ -163,6 +163,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+<distributionManagement>
+    <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/your-org/your-repo</url>
+    </repository>
+</distributionManagement>
     <build>
         <plugins>
             <plugin>
