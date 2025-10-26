@@ -6,7 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,35 +18,34 @@ import java.util.Objects;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef = "db1EntityManagerFactory",
-        transactionManagerRef = "db1TransactionManager",
+        entityManagerFactoryRef = "dbEntityManagerFactory",
+        transactionManagerRef = "dbTransactionManager",
         basePackages = {"com.service.productCatalog.repo"}
 )
-@Profile(value = "dev")
-public class DatabaseConfig1 {
+public class DatabaseConfig {
 
     @Bean
-    @ConfigurationProperties("spring.datasource.db1")
-    public DataSourceProperties db1DataSourceProperties() {
+    @ConfigurationProperties("spring.datasource.db")
+    public DataSourceProperties dbDataSourceProperties() {
         return new DataSourceProperties();
     }
 
-    @Bean(name = "db1DataSource")
-    public DataSource db1DataSource() {
-        return db1DataSourceProperties().initializeDataSourceBuilder().build();
+    @Bean(name = "dbDataSource")
+    public DataSource dbDataSource() {
+        return dbDataSourceProperties().initializeDataSourceBuilder().build();
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean db1EntityManagerFactory(EntityManagerFactoryBuilder builder) {
+    public LocalContainerEntityManagerFactoryBean dbEntityManagerFactory(EntityManagerFactoryBuilder builder) {
         return builder
-                .dataSource(db1DataSource())
+                .dataSource(dbDataSource())
                 .packages("com.service.productCatalog.entity")
-                .persistenceUnit("db1")
+                .persistenceUnit("db")
                 .build();
     }
 
     @Bean
-    public PlatformTransactionManager db1TransactionManager(EntityManagerFactoryBuilder builder) {
-        return new JpaTransactionManager(Objects.requireNonNull(db1EntityManagerFactory(builder).getObject()));
+    public PlatformTransactionManager dbTransactionManager(EntityManagerFactoryBuilder builder) {
+        return new JpaTransactionManager(Objects.requireNonNull(dbEntityManagerFactory(builder).getObject()));
     }
 }

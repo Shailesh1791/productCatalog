@@ -44,6 +44,7 @@ public class ProductServiceImplTest {
         Product product= Product.builder().name("mobile").price(50000)
                 .productId(productId).description("Mobile Description").build();
         Mockito.when(productCatalogRepo.findById(productId)).thenReturn(Optional.ofNullable(product));
+        assert product != null;
         Mockito.when(productMapper.toDto(product)).thenReturn(ProductDTO.builder().productId(productId)
                 .name(product.getName()).description(product.getDescription()).
                 category(product.getCategory()).price(product.getPrice()).build());
@@ -65,14 +66,19 @@ public class ProductServiceImplTest {
         assertEquals("productId should be positive", illegalArgumentException.getMessage());
     }
 
-    /*@Test
+    @Test
     public void testAllProducts_WithSuccess_ReturnAllProductDTOs() {
         //arrange
         Product product=Product.builder().productId(1000).name("Apple Phone").price(50000).description("Sumsung Mobile").build();
         Product product1=Product.builder().productId(2000).name("IPhone").price(80000).description("Sumsung Mobile").build();
         List<Product> productList= Arrays.asList(product,product1);
         Mockito.when(productCatalogRepo.findAll()).thenReturn(productList);
-        Mockito.when(productMapper.toDto(product)).thenReturn(productMapper.toDto(product1));
+        Mockito.when(productMapper.toDto(product)).thenReturn(ProductDTO.builder().productId(product.getProductId())
+                .name(product.getName()).description(product.getDescription()).
+                category(product.getCategory()).price(product.getPrice()).build());
+        Mockito.when(productMapper.toDto(product1)).thenReturn(ProductDTO.builder().productId(product1.getProductId())
+                .name(product1.getName()).description(product1.getDescription()).
+                category(product1.getCategory()).price(product1.getPrice()).build());
 
         //act
         List<ProductDTO> productDTOList=productService.getAllProducts();
@@ -81,7 +87,7 @@ public class ProductServiceImplTest {
         assertNotNull(productDTOList);
         assertEquals(productList.size(), productDTOList.size());
         assertEquals(productList.get(0).getProductId(), productDTOList.get(0).getProductId());
-    }*/
+    }
 
     @Test
     public void testProductByProductName_WithSuccess_ReturnProductDTO() {
@@ -90,5 +96,6 @@ public class ProductServiceImplTest {
 
     @Test
     public void testSaveProduct() {
+
     }
 }

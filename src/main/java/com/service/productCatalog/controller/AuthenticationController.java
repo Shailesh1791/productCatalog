@@ -24,7 +24,6 @@ public class AuthenticationController {
         String username = user.get("username");
         String password = user.get("password");
 
-        // In production → validate against database or UserDetailsService
         if ("admin".equals(username) && "admin123".equals(password)) {
             String token = jwtUtil.generateToken(username, "ADMIN");
             return ResponseEntity.ok(Map.of("token", token));

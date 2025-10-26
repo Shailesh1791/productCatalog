@@ -17,6 +17,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
+
     private final HttpServletResponse httpServletResponse;
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil, HttpServletResponse httpServletResponse) {
@@ -44,6 +45,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(auth);
 
             } catch (Exception e) {
+                System.err.println(e.getMessage());
                 response.setStatus(httpServletResponse.SC_UNAUTHORIZED);
                 return;
             }

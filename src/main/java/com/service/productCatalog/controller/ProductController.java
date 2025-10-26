@@ -80,7 +80,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductDTO> saveProduct(@RequestBody ProductDTO product) {
-        log.info("saveProduct started");
+        log.info("saveProduct started ");
         product = productService.saveProduct(product);
         //System.out.println(product.getName());
         //orderService.addOrder(new OrderDTO());
